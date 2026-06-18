@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دکتر حمید احمدی هدایت</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  :root {
+    --primary: #1a6fc4;
+    --primary-light: #e8f2fd;
+    --primary-mid: #5499d6;
+    --accent: #0d4a8a;
+    --bg: #edf5ff;
+    --surface: #ffffff;
+    --surface-alt: #dcecff;
+    --text: #0f1c2e;
+    --text-muted: #40566f;
+    --border: #9ec5ec;
+    --card-shadow: 0 8px 26px rgba(26,111,196,0.16);
+    --nav-bg: rgba(247,251,255,0.96);
+    --timeline-line: #9ec5ec;
+    --badge-bg: #d6eaff;
+    --badge-text: #1a4f8a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.75;
+    direction: rtl;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 62px;
+  }
+  .nav-logo {
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--primary);
+    letter-spacing: -0.3px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--primary); }
+
+  .theme-select-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .theme-label {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  select#themeSelect {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 13px;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  select#themeSelect:focus { border-color: var(--primary); }
+
+  /* ── SECTIONS ── */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+  section + section { padding-top: 0; }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .section-divider {
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--surface-alt) 52%, var(--surface) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hero-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    border: 4px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-name {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+  .hero-title {
+    font-size: 16px;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+  }
+  .hero-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.85;
+    max-width: 560px;
+  }
+  .hero-stats {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    display: block;
+  }
+  .stat-lbl {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* ── CARD GRIDS ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* ── A4 VERTICAL CARD ── */
+  .a4-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .a4-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-mid);
+    box-shadow: 0 12px 34px rgba(26,111,196,0.22);
+  }
+  .a4-img {
+    width: 100%;
+    aspect-ratio: 1/1.414;
+    background: var(--surface-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .a4-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .a4-img-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-mid);
+    font-size: 13px;
+    text-align: center;
+    padding: 1rem;
+  }
+  .a4-img-placeholder i { font-size: 36px; opacity: 0.5; }
+  .a4-body { padding: 1rem 1.1rem 1.2rem; }
+  .a4-tag {
+    display: inline-block;
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+  .a4-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  .a4-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .a4-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .a4-meta i { font-size: 14px; }
+
+  /* ── BOOK CARD ── */
+  .book-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  .book-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-mid);
+    box-shadow: 0 12px 34px rgba(26,111,196,0.22);
+  }
+  .book-cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background: var(--surface-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .book-cover img { width: 100%; height: 100%; object-fit: cover; }
+  .book-cover-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary-mid);
+    font-size: 13px;
+    text-align: center;
+    padding: 1rem;
+  }
+  .book-cover-placeholder i { font-size: 40px; opacity: 0.45; }
+  .book-body { padding: 1rem 1.1rem 1.2rem; flex: 1; display: flex; flex-direction: column; }
+  .book-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 5px;
+    line-height: 1.5;
+  }
+  .book-author {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .book-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    flex: 1;
+  }
+  .book-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+  .book-year {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .book-year i { font-size: 13px; }
+  .book-pub {
+    font-size: 11px;
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 1rem;
+  }
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem 1.2rem;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .skill-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-mid);
+    box-shadow: 0 10px 28px rgba(26,111,196,0.18);
+  }
+  .skill-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--primary-light);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: var(--primary);
+    font-size: 24px;
+    transition: background 0.2s;
+  }
+  .skill-card:hover .skill-icon { background: var(--primary); color: #fff; }
+  .skill-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .skill-level {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .skill-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: width 0.6s ease;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-right: 2rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--timeline-line);
+    border-radius: 2px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 2.2rem;
+    padding-right: 2rem;
+  }
+  .tl-dot {
+    position: absolute;
+    right: -7px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    background: var(--primary);
+    border: 3px solid var(--surface);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--primary);
+  }
+  .tl-period {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+  }
+  .tl-role {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .tl-org {
+    font-size: 13px;
+    color: var(--primary-mid);
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .tl-org i { font-size: 14px; }
+  .tl-tasks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .tl-tasks li {
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    line-height: 1.6;
+  }
+  .tl-tasks li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: var(--primary-mid);
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .tl-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    box-shadow: var(--card-shadow);
+  }
+
+  /* ── CONTACT FOOTER ── */
+  .footer-section {
+    background: var(--accent);
+    color: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  .footer-inner { max-width: 600px; margin: 0 auto; }
+  .footer-title { font-size: 22px; font-weight: 700; margin-bottom: 0.6rem; }
+  .footer-sub { font-size: 14px; opacity: 0.75; margin-bottom: 2rem; }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 13.5px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+  .contact-btn:hover { background: rgba(255,255,255,0.22); }
+  .contact-btn i { font-size: 17px; }
+
+  /* ── UPLOAD HINT ── */
+  .upload-hint {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    color: var(--primary-mid);
+    font-size: 12px;
+    text-align: center;
+    padding: 1rem;
+  }
+  .upload-hint i { font-size: 32px; opacity: 0.4; }
+  .upload-hint input[type=file] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── WORKSHOP CARD ── */
+  .workshop-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .workshop-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-mid);
+    box-shadow: 0 12px 34px rgba(26,111,196,0.22);
+  }
+  .workshop-img {
+    width: 100%;
+    aspect-ratio: 1/1.414;
+    background: var(--surface-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .workshop-img img { width: 100%; height: 100%; object-fit: cover; }
+  .workshop-body { padding: 1rem 1.1rem 1.2rem; }
+  .workshop-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+  .workshop-badge i { font-size: 12px; }
+  .workshop-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+  .workshop-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; }
+  .workshop-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+  .workshop-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .workshop-meta-item i { font-size: 13px; }
+
+  .a4-card, .book-card, .skill-card, .workshop-card, .tl-card, .hero-stats {
+    outline: 1px solid rgba(255,255,255,0.65);
+  }
+  .a4-img, .book-cover, .workshop-img {
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links a:hover, .nav-links a:focus-visible {
+    background: var(--primary-light);
+    border-radius: 8px;
+    padding-inline: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="theme-select-wrap">
+    <span class="theme-label">تم:</span>
+    <select id="themeSelect" onchange="applyTheme(this.value)">
+      <option value="blue">آبی کلاسیک</option>
+      <option value="navy">نیوی تیره</option>
+      <option value="teal">فیروزه‌ای</option>
+      <option value="slate">خاکستری-آبی</option>
+      <option value="emerald">سبز زمردی</option>
+      <option value="violet">بنفش</option>
+      <option value="rose">صورتی گرم</option>
+      <option value="amber">کهربایی</option>
+      <option value="charcoal">ذغالی مدرن</option>
+      <option value="midnight">نیمه‌شب</option>
+    </select>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#articles">مقالات</a></li>
+    <li><a href="#books">کتاب‌ها</a></li>
+    <li><a href="#workshops">کارگاه‌ها</a></li>
+    <li><a href="#skills">تخصص‌ها</a></li>
+    <li><a href="#timeline">سابقه</a></li>
+    <li><a href="#contact">تماس</a></li>
+  </ul>
+  <div class="nav-logo">دکتر حمید احمدی هدایت</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-avatar">
+        <span><img src="profile.jpg"></img></span>
+      </div>
+      <div class="hero-name">دکتر حمید احمدی هدایت</div>
+      <div class="hero-title">استاد دانشگاه ، پژوهشگر ، مشاور</div>
+      <p class="hero-desc">
+        بیش از دو دهه تجربه در حوزه علوم شناختی و روان‌شناسی تربیتی. نویسنده و مترجم بیش از ۱۲ کتاب تخصصی و مقاله‌های متعدد در نشریات داخلی و بین‌المللی. علاقه‌مند به پیوند دانش آکادمیک با کاربردهای عملی در حوزه یادگیری و توسعه فردی.
+      </p>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">۱۲+</span>
+        <span class="stat-lbl">کتاب منتشر شده</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">۸۵</span>
+        <span class="stat-lbl">مقاله علمی</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">۲۰+</span>
+        <span class="stat-lbl">سال تجربه</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">۳۰+</span>
+        <span class="stat-lbl">کارگاه برگزار شده</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLES -->
+<section id="articles">
+  <div class="section-label">پژوهش و نوشتار</div>
+  <div class="section-title">مقالات علمی</div>
+  <div class="section-divider"></div>
+  <div class="cards-grid">
+
+    <div class="a4-card">
+      <div class="a4-img">
+        <div class="upload-hint">
+          <i class="ti ti-file-text" aria-hidden="true"></i>
+          <span>آپلود تصویر مقاله</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-art1')">
+        </div>
+        <img id="img-art1" style="display:none">
+      </div>
+      <div class="a4-body">
+        <span class="a4-tag">روان‌شناسی تربیتی</span>
+        <div class="a4-title">نقش هوش هیجانی در فرآیند یادگیری دانش‌آموزان متوسطه</div>
+        <div class="a4-desc">بررسی رابطه میان سطح هوش هیجانی و موفقیت تحصیلی در گروه‌های مختلف سنی با استفاده از روش‌های کمی.</div>
+        <div class="a4-meta"><i class="ti ti-calendar-event" aria-hidden="true"></i> ۱۴۰۱ · نشریه علوم تربیتی</div>
+      </div>
+    </div>
+
+    <div class="a4-card">
+      <div class="a4-img">
+        <div class="upload-hint">
+          <i class="ti ti-file-text" aria-hidden="true"></i>
+          <span>آپلود تصویر مقاله</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-art2')">
+        </div>
+        <img id="img-art2" style="display:none">
+      </div>
+      <div class="a4-body">
+        <span class="a4-tag">علوم شناختی</span>
+        <div class="a4-title">مدل‌های حافظه کاری و تأثیر آن‌ها بر توانایی حل مسئله</div>
+        <div class="a4-desc">پژوهشی مقایسه‌ای میان دو مدل از حافظه کاری و بررسی کاربردهای آموزشی آن‌ها در محیط‌های مختلف.</div>
+        <div class="a4-meta"><i class="ti ti-calendar-event" aria-hidden="true"></i> ۱۴۰۲ · فصلنامه روان‌شناسی</div>
+      </div>
+    </div>
+
+    <div class="a4-card">
+      <div class="a4-img">
+        <div class="upload-hint">
+          <i class="ti ti-file-text" aria-hidden="true"></i>
+          <span>آپلود تصویر مقاله</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-art3')">
+        </div>
+        <img id="img-art3" style="display:none">
+      </div>
+      <div class="a4-body">
+        <span class="a4-tag">روش‌شناسی</span>
+        <div class="a4-title">کاربرد هوش مصنوعی در ارزیابی مستمر آموزشی</div>
+        <div class="a4-desc">معرفی رویکردهای نوین ارزیابی دانش‌آموزان با تکیه بر الگوریتم‌های یادگیری ماشین و داده‌های رفتاری.</div>
+        <div class="a4-meta"><i class="ti ti-calendar-event" aria-hidden="true"></i> ۱۴۰۲ · کنفرانس بین‌المللی</div>
+      </div>
+    </div>
+
+    <div class="a4-card">
+      <div class="a4-img">
+        <div class="upload-hint">
+          <i class="ti ti-file-text" aria-hidden="true"></i>
+          <span>آپلود تصویر مقاله</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-art4')">
+        </div>
+        <img id="img-art4" style="display:none">
+      </div>
+      <div class="a4-body">
+        <span class="a4-tag">توسعه فردی</span>
+        <div class="a4-title">خودتنظیمی یادگیری: مدل‌ها و راهبردهای عملی</div>
+        <div class="a4-desc">مروری جامع بر نظریه‌های خودتنظیمی و ارائه راهکارهای کاربردی برای معلمان و مربیان.</div>
+        <div class="a4-meta"><i class="ti ti-calendar-event" aria-hidden="true"></i> ۱۴۰۰ · مجله پژوهش</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section id="books" style="background: var(--surface-alt); margin: 0; max-width: 100%; padding: 5rem 0;">
+<div style="max-width:1100px; margin:0 auto; padding: 0 2rem;">
+  <div class="section-label">آثار مکتوب</div>
+  <div class="section-title">کتاب‌های تألیفی</div>
+  <div class="section-divider"></div>
+  <div class="cards-grid" style="grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));">
+
+    <div class="book-card">
+      <div class="book-cover">
+        <div class="upload-hint">
+          <i class="ti ti-book" aria-hidden="true"></i>
+          <span>آپلود تصویر کتاب</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-bk1')">
+        </div>
+        <img id="img-bk1" style="display:none">
+      </div>
+      <div class="book-body">
+        <div class="book-title">روان‌شناسی یادگیری نوین</div>
+        <div class="book-author">دکتر علی احمدی</div>
+        <div class="book-desc">نگاهی جامع به نظریه‌های کلاسیک و مدرن یادگیری با کاربردهای عملی در آموزش و پرورش.</div>
+        <div class="book-info">
+          <span class="book-year"><i class="ti ti-calendar" aria-hidden="true"></i> ۱۳۹۸</span>
+          <span class="book-pub">انتشارات سمت</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <div class="upload-hint">
+          <i class="ti ti-book" aria-hidden="true"></i>
+          <span>آپلود تصویر کتاب</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-bk2')">
+        </div>
+        <img id="img-bk2" style="display:none">
+      </div>
+      <div class="book-body">
+        <div class="book-title">مغز، ذهن و تعلیم</div>
+        <div class="book-author">دکتر حمید احمدی هدایت</div>
+        <div class="book-desc">ارتباط علوم اعصاب با آموزش و راهکارهای عملی برای بهینه‌سازی محیط‌های یادگیری.</div>
+        <div class="book-info">
+          <span class="book-year"><i class="ti ti-calendar" aria-hidden="true"></i> ۱۴۰۰</span>
+          <span class="book-pub">نشر آگاه</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <div class="upload-hint">
+          <i class="ti ti-book" aria-hidden="true"></i>
+          <span>آپلود تصویر کتاب</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-bk3')">
+        </div>
+        <img id="img-bk3" style="display:none">
+      </div>
+      <div class="book-body">
+        <div class="book-title">هوش هیجانی در سازمان</div>
+        <div class="book-author">دکتر حمید احمدی هدایت</div>
+        <div class="book-desc">راهنمای عملی توسعه هوش هیجانی برای مدیران و کارکنان سازمان‌های بزرگ.</div>
+        <div class="book-info">
+          <span class="book-year"><i class="ti ti-calendar" aria-hidden="true"></i> ۱۴۰۱</span>
+          <span class="book-pub">نشر دانشگاه</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-cover">
+        <div class="upload-hint">
+          <i class="ti ti-book" aria-hidden="true"></i>
+          <span>آپلود تصویر کتاب</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-bk4')">
+        </div>
+        <img id="img-bk4" style="display:none">
+      </div>
+      <div class="book-body">
+        <div class="book-title">تفکر نقادانه و خلاقیت</div>
+        <div class="book-author">دکتر حمید احمدی هدایت</div>
+        <div class="book-desc">چارچوب‌های عملی برای پرورش مهارت‌های تفکر در دانش‌آموزان و دانشجویان.</div>
+        <div class="book-info">
+          <span class="book-year"><i class="ti ti-calendar" aria-hidden="true"></i> ۱۴۰۲</span>
+          <span class="book-pub">نشر فردا</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- WORKSHOPS -->
+<section id="workshops">
+  <div class="section-label">آموزش و تربیت</div>
+  <div class="section-title">کارگاه‌های تخصصی</div>
+  <div class="section-divider"></div>
+  <div class="cards-grid">
+
+    <div class="workshop-card">
+      <div class="workshop-img">
+        <div class="upload-hint">
+          <i class="ti ti-presentation" aria-hidden="true"></i>
+          <span>آپلود تصویر کارگاه</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-ws1')">
+        </div>
+        <img id="img-ws1" style="display:none">
+      </div>
+      <div class="workshop-body">
+        <span class="workshop-badge"><i class="ti ti-users" aria-hidden="true"></i> ۴۵ نفر</span>
+        <div class="workshop-title">کارگاه یادگیری مبتنی بر پروژه</div>
+        <div class="workshop-desc">آموزش روش‌های یادگیری پروژه‌محور برای معلمان دوره ابتدایی و متوسطه.</div>
+        <div class="workshop-meta">
+          <span class="workshop-meta-item"><i class="ti ti-calendar" aria-hidden="true"></i> بهمن ۱۴۰۲</span>
+          <span class="workshop-meta-item"><i class="ti ti-map-pin" aria-hidden="true"></i> تهران</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="workshop-card">
+      <div class="workshop-img">
+        <div class="upload-hint">
+          <i class="ti ti-presentation" aria-hidden="true"></i>
+          <span>آپلود تصویر کارگاه</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-ws2')">
+        </div>
+        <img id="img-ws2" style="display:none">
+      </div>
+      <div class="workshop-body">
+        <span class="workshop-badge"><i class="ti ti-users" aria-hidden="true"></i> ۶۰ نفر</span>
+        <div class="workshop-title">مدیریت استرس و فرسودگی شغلی</div>
+        <div class="workshop-desc">راهکارهای مبتنی بر شواهد برای مقابله با استرس شغلی ویژه مدیران و مشاوران.</div>
+        <div class="workshop-meta">
+          <span class="workshop-meta-item"><i class="ti ti-calendar" aria-hidden="true"></i> مرداد ۱۴۰۲</span>
+          <span class="workshop-meta-item"><i class="ti ti-map-pin" aria-hidden="true"></i> اصفهان</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="workshop-card">
+      <div class="workshop-img">
+        <div class="upload-hint">
+          <i class="ti ti-presentation" aria-hidden="true"></i>
+          <span>آپلود تصویر کارگاه</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-ws3')">
+        </div>
+        <img id="img-ws3" style="display:none">
+      </div>
+      <div class="workshop-body">
+        <span class="workshop-badge"><i class="ti ti-users" aria-hidden="true"></i> ۳۵ نفر</span>
+        <div class="workshop-title">پژوهش کیفی در علوم اجتماعی</div>
+        <div class="workshop-desc">آموزش روش‌های تحقیق کیفی، مصاحبه عمیق و تحلیل محتوا برای پژوهشگران.</div>
+        <div class="workshop-meta">
+          <span class="workshop-meta-item"><i class="ti ti-calendar" aria-hidden="true"></i> دی ۱۴۰۱</span>
+          <span class="workshop-meta-item"><i class="ti ti-map-pin" aria-hidden="true"></i> آنلاین</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="workshop-card">
+      <div class="workshop-img">
+        <div class="upload-hint">
+          <i class="ti ti-presentation" aria-hidden="true"></i>
+          <span>آپلود تصویر کارگاه</span>
+          <input type="file" accept="image/*" onchange="loadImage(this, 'img-ws4')">
+        </div>
+        <img id="img-ws4" style="display:none">
+      </div>
+      <div class="workshop-body">
+        <span class="workshop-badge"><i class="ti ti-users" aria-hidden="true"></i> ۸۰ نفر</span>
+        <div class="workshop-title">کوچینگ تحصیلی و حرفه‌ای</div>
+        <div class="workshop-desc">اصول و مهارت‌های کوچینگ برای راهنمایی دانش‌آموزان در مسیر تحصیلی و شغلی.</div>
+        <div class="workshop-meta">
+          <span class="workshop-meta-item"><i class="ti ti-calendar" aria-hidden="true"></i> خرداد ۱۴۰۲</span>
+          <span class="workshop-meta-item"><i class="ti ti-map-pin" aria-hidden="true"></i> مشهد</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background: var(--surface-alt); margin: 0; max-width: 100%; padding: 5rem 0;">
+<div style="max-width:1100px; margin:0 auto; padding: 0 2rem;">
+  <div class="section-label">حوزه‌های تخصصی</div>
+  <div class="section-title">تخصص‌ها و مهارت‌ها</div>
+  <div class="section-divider"></div>
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-brain" aria-hidden="true"></i></div>
+      <div class="skill-name">علوم شناختی</div>
+      <div class="skill-level">تخصصی</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
+      <div class="skill-name">روان‌شناسی تربیتی</div>
+      <div class="skill-level">تخصصی</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:92%"></div></div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-chart-line" aria-hidden="true"></i></div>
+      <div class="skill-name">تحقیق و پژوهش</div>
+      <div class="skill-level">پیشرفته</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+      <div class="skill-name">مشاوره فردی</div>
+      <div class="skill-level">پیشرفته</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-writing" aria-hidden="true"></i></div>
+      <div class="skill-name">نویسندگی علمی</div>
+      <div class="skill-level">پیشرفته</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-microphone" aria-hidden="true"></i></div>
+      <div class="skill-name">سخنرانی عمومی</div>
+      <div class="skill-level">پیشرفته</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-device-laptop" aria-hidden="true"></i></div>
+      <div class="skill-name">آموزش آنلاین</div>
+      <div class="skill-level">متوسط-پیشرفته</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-language" aria-hidden="true"></i></div>
+      <div class="skill-name">زبان انگلیسی</div>
+      <div class="skill-level">پیشرفته</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-target" aria-hidden="true"></i></div>
+      <div class="skill-name">کوچینگ</div>
+      <div class="skill-level">پیشرفته</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:78%"></div></div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-flask" aria-hidden="true"></i></div>
+      <div class="skill-name">روش‌های آماری</div>
+      <div class="skill-level">متوسط-پیشرفته</div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:73%"></div></div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="section-label">مسیر حرفه‌ای</div>
+  <div class="section-title">سابقه کاری و تحصیلی</div>
+  <div class="section-divider"></div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-period">۱۴۰۰ — اکنون</div>
+        <div class="tl-role">استاد تمام و رئیس گروه</div>
+        <div class="tl-org"><i class="ti ti-building-community" aria-hidden="true"></i> دانشگاه تهران — دانشکده روان‌شناسی</div>
+        <ul class="tl-tasks">
+          <li>تدریس دروس علوم شناختی و روان‌شناسی تربیتی در مقطع دکترا</li>
+          <li>راهنمایی رساله بیش از ۱۵ دانشجوی دکترا</li>
+          <li>سردبیری فصلنامه روان‌شناسی کاربردی</li>
+          <li>مدیریت ۳ پروژه پژوهشی ملی</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-period">۱۳۹۵ — ۱۴۰۰</div>
+        <div class="tl-role">دانشیار و مشاور ارشد</div>
+        <div class="tl-org"><i class="ti ti-building" aria-hidden="true"></i> دانشگاه شهید بهشتی</div>
+        <ul class="tl-tasks">
+          <li>تدریس دروس تخصصی در مقاطع کارشناسی ارشد و دکترا</li>
+          <li>مشاوره به وزارت آموزش و پرورش در حوزه اصلاح برنامه درسی</li>
+          <li>تألیف ۴ کتاب دانشگاهی</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-period">۱۳۹۰ — ۱۳۹۵</div>
+        <div class="tl-role">پژوهشگر و مدرس مدعو</div>
+        <div class="tl-org"><i class="ti ti-school" aria-hidden="true"></i> دانشگاه‌های مختلف · فریلنسر</div>
+        <ul class="tl-tasks">
+          <li>تدریس مدعو در دانشگاه‌های اصفهان، شیراز و مشهد</li>
+          <li>انجام پروژه‌های پژوهشی مستقل با حمایت بنیاد ملی علم</li>
+          <li>برگزاری کارگاه‌های تخصصی برای سازمان‌های دولتی</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-period">۱۳۸۵ — ۱۳۹۰</div>
+        <div class="tl-role">دوره دکترا · پژوهشگر</div>
+        <div class="tl-org"><i class="ti ti-building-arch" aria-hidden="true"></i> دانشگاه ادینبورگ، اسکاتلند</div>
+        <ul class="tl-tasks">
+          <li>دفاع از رساله دکترا با موضوع حافظه کاری و یادگیری زبان دوم</li>
+          <li>انجام پژوهش تجربی با بیش از ۳۰۰ شرکت‌کننده</li>
+          <li>دریافت جایزه بهترین پایان‌نامه دانشکده</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-card">
+        <div class="tl-period">۱۳۸۰ — ۱۳۸۵</div>
+        <div class="tl-role">کارشناسی ارشد · تدریس</div>
+        <div class="tl-org"><i class="ti ti-school" aria-hidden="true"></i> دانشگاه تهران</div>
+        <ul class="tl-tasks">
+          <li>فارغ‌التحصیلی با رتبه اول در رشته روان‌شناسی تربیتی</li>
+          <li>تدریس در دبیرستان‌های تهران</li>
+          <li>شروع نوشتن اولین کتاب</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="footer-section" id="contact">
+  <div class="footer-inner">
+    <div class="footer-title">در تماس باشیم</div>
+    <div class="footer-sub">برای همکاری، مشاوره یا دعوت به سخنرانی در دسترس هستم</div>
+    <div class="contact-links">
+      <a class="contact-btn" href="mailto:info@example.com">
+        <i class="ti ti-mail" aria-hidden="true"></i> ایمیل
+      </a>
+      <a class="contact-btn" href="#">
+        <i class="ti ti-brand-linkedin" aria-hidden="true"></i> لینکدین
+      </a>
+      <a class="contact-btn" href="#">
+        <i class="ti ti-brand-instagram" aria-hidden="true"></i> اینستاگرام
+      </a>
+      <a class="contact-btn" href="tel:+98">
+        <i class="ti ti-phone" aria-hidden="true"></i> تماس مستقیم
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+const themes = {
+  blue: {
+    primary:'#1a6fc4', light:'#e8f2fd', mid:'#5499d6',
+    accent:'#0d4a8a', bg:'#f7faff', surface:'#ffffff',
+    surfaceAlt:'#dcecff', text:'#0f1c2e', muted:'#40566f',
+    border:'#9ec5ec', badge:'#d6eaff', badgeText:'#174a82',
+    timeline:'#9ec5ec', nav:'rgba(247,251,255,0.96)'
+  },
+  navy: {
+    primary:'#1d3557', light:'#e8edf5', mid:'#457b9d',
+    accent:'#0a1628', bg:'#e9eef6', surface:'#ffffff',
+    surfaceAlt:'#d8e0ec', text:'#0d1b2a', muted:'#3f526b',
+    border:'#9dafc7', badge:'#dce5f2', badgeText:'#1d3557',
+    timeline:'#9dafc7', nav:'rgba(247,249,252,0.96)'
+  },
+  teal: {
+    primary:'#0d7c6a', light:'#e0f5f1', mid:'#3aab96',
+    accent:'#065046', bg:'#e9f7f3', surface:'#ffffff',
+    surfaceAlt:'#d6eee8', text:'#092e27', muted:'#356b62',
+    border:'#88c9bd', badge:'#cfebe5', badgeText:'#0d5c4d',
+    timeline:'#88c9bd', nav:'rgba(247,252,250,0.96)'
+  },
+  slate: {
+    primary:'#334e68', light:'#e9eef5', mid:'#627d98',
+    accent:'#1a2e40', bg:'#e9edf3', surface:'#ffffff',
+    surfaceAlt:'#d8dee8', text:'#102030', muted:'#405268',
+    border:'#a1afbf', badge:'#dbe3ee', badgeText:'#2a4060',
+    timeline:'#a1afbf', nav:'rgba(247,249,252,0.96)'
+  },
+  emerald: {
+    primary:'#196f3d', light:'#e8f7ee', mid:'#52b788',
+    accent:'#0a4a26', bg:'#eaf7ef', surface:'#ffffff',
+    surfaceAlt:'#d9eee2', text:'#0a2e1a', muted:'#315f48',
+    border:'#89c7a3', badge:'#d0ecd9', badgeText:'#196f3d',
+    timeline:'#89c7a3', nav:'rgba(247,252,249,0.96)'
+  },
+  violet: {
+    primary:'#6d3ab5', light:'#f0e8fb', mid:'#9b6dce',
+    accent:'#3d1878', bg:'#f2ebfb', surface:'#ffffff',
+    surfaceAlt:'#e6d8f5', text:'#1e0d40', muted:'#5b456d',
+    border:'#baa0dc', badge:'#e3d3f4', badgeText:'#5028a0',
+    timeline:'#baa0dc', nav:'rgba(250,247,255,0.96)'
+  },
+  rose: {
+    primary:'#b5234a', light:'#fde8ef', mid:'#d9637e',
+    accent:'#7a0c2e', bg:'#fdecf1', surface:'#ffffff',
+    surfaceAlt:'#f8d8e2', text:'#2e0a16', muted:'#6c3346',
+    border:'#df91a9', badge:'#f7ceda', badgeText:'#8a1535',
+    timeline:'#df91a9', nav:'rgba(255,248,250,0.96)'
+  },
+  amber: {
+    primary:'#9a5f00', light:'#fef4e0', mid:'#d4943a',
+    accent:'#5c3800', bg:'#fff3dc', surface:'#ffffff',
+    surfaceAlt:'#f7e4bd', text:'#2e1a00', muted:'#6d4f27',
+    border:'#d8b66b', badge:'#f7dfa9', badgeText:'#7a4a00',
+    timeline:'#d8b66b', nav:'rgba(255,250,242,0.96)'
+  },
+  charcoal: {
+    primary:'#3d8ef0', light:'#e8f2ff', mid:'#78b0f5',
+    accent:'#1a1a2e', bg:'#e6ebf5', surface:'#ffffff',
+    surfaceAlt:'#d7deed', text:'#101828', muted:'#414d60',
+    border:'#a5b2cf', badge:'#d9e5ff', badgeText:'#2060c0',
+    timeline:'#a5b2cf', nav:'rgba(247,249,252,0.96)'
+  },
+  midnight: {
+    primary:'#7ab3f5', light:'#0f2040', mid:'#5899e5',
+    accent:'#050d1a', bg:'#080e1e', surface:'#0f1929',
+    surfaceAlt:'#0a1422', text:'#e8f0fa', muted:'#8aaccc',
+    border:'#1f3458', badge:'#0f2040', badgeText:'#7ab3f5',
+    timeline:'#1d3050', nav:'rgba(8,14,30,0.92)'
+  }
+};
+
+function applyTheme(t) {
+  const th = themes[t] || themes.blue;
+  const r = document.documentElement.style;
+  r.setProperty('--primary', th.primary);
+  r.setProperty('--primary-light', th.light);
+  r.setProperty('--primary-mid', th.mid);
+  r.setProperty('--accent', th.accent);
+  r.setProperty('--bg', th.bg);
+  r.setProperty('--surface', th.surface);
+  r.setProperty('--surface-alt', th.surfaceAlt);
+  r.setProperty('--text', th.text);
+  r.setProperty('--text-muted', th.muted);
+  r.setProperty('--border', th.border);
+  r.setProperty('--badge-bg', th.badge);
+  r.setProperty('--badge-text', th.badgeText);
+  r.setProperty('--timeline-line', th.timeline);
+  r.setProperty('--nav-bg', th.nav);
+  r.setProperty('--card-shadow', t === 'midnight' ? `0 8px 28px ${th.primary}26` : `0 8px 26px ${th.primary}24`);
+}
+
+function loadImage(input, imgId) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = document.getElementById(imgId);
+    img.src = e.target.result;
+    img.style.display = 'block';
+    const hint = input.closest('.upload-hint');
+    if (hint) hint.style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
