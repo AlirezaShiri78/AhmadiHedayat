@@ -1359,6 +1359,102 @@
     }
   }
 
+
+  /* ── V4: NAV TRACKING, MOBILE CONTROLS & DESKTOP SCALE ── */
+  .nav-links a.is-active,
+  .nav-links a[aria-current="location"] {
+    color: var(--primary);
+    background: var(--primary-light);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--primary) 14%, transparent);
+  }
+
+  /* Timeline markers point to the vertical center of every card. */
+  .tl-dot {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @media (min-width: 769px) {
+    /* Approximately 15% more room for the two-card desktop sliders. */
+    #books > div {
+      max-width: 1265px !important;
+    }
+    #workshops {
+      padding-inline: max(2rem, calc((100% - 1265px) / 2));
+    }
+    #books .content-slider,
+    #workshops .content-slider {
+      grid-template-columns: 55px minmax(0, 1fr) 55px;
+      column-gap: 14px;
+    }
+    #books .slider-btn,
+    #workshops .slider-btn {
+      width: 51px;
+      height: 51px;
+    }
+    #books .slider-btn i,
+    #workshops .slider-btn i {
+      font-size: 25px;
+    }
+    .book-card,
+    .workshop-card {
+      min-height: 299px;
+    }
+    .book-cover,
+    .workshop-img {
+      min-width: 173px;
+      max-width: 213px;
+      min-height: 299px;
+    }
+    .book-body,
+    .workshop-body {
+      padding: 1.44rem 1.38rem;
+    }
+    .book-title,
+    .workshop-title {
+      font-size: 18px;
+    }
+    .book-author,
+    .book-desc,
+    .workshop-desc {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* The cards receive the full width; navigation controls sit below them. */
+    .content-slider {
+      grid-template-columns: 40px 40px;
+      grid-template-rows: minmax(0, auto) 40px;
+      justify-content: center;
+      align-items: center;
+      column-gap: 12px;
+      row-gap: 0.7rem;
+    }
+    .slider-viewport {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      width: 100%;
+      min-width: 0;
+      padding-bottom: 0.25rem;
+    }
+    .slider-btn {
+      width: 38px;
+      height: 38px;
+      align-self: center;
+      justify-self: center;
+    }
+    .slider-btn--right {
+      grid-column: 2;
+      grid-row: 2;
+    }
+    .slider-btn--left {
+      grid-column: 1;
+      grid-row: 2;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -1834,13 +1930,86 @@ function applyTheme(t) {
 }
 
 
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+(function () {
+  const nav = document.querySelector('nav');
+  const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  const items = links.map(link => ({
+    link,
+    section: document.querySelector(link.getAttribute('href'))
+  })).filter(item => item.section);
+
+  const getHeading = section =>
+    section.querySelector('.section-title, .footer-title') || section;
+
+  const getTopOffset = () => (nav ? nav.offsetHeight : 0) + 14;
+
+  const setActive = activeLink => {
+    links.forEach(link => {
+      const isActive = link === activeLink;
+      link.classList.toggle('is-active', isActive);
+      if (isActive) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
+  const scrollToSection = (section, behavior = 'smooth') => {
+    const heading = getHeading(section);
+    const top = Math.max(
+      0,
+      heading.getBoundingClientRect().top + window.scrollY - getTopOffset()
+    );
+    window.scrollTo({ top, left: 0, behavior });
+  };
+
+  links.forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      const section = document.querySelector(link.getAttribute('href'));
+      if (!section) return;
+      setActive(link);
+      history.pushState(null, '', link.getAttribute('href'));
+      scrollToSection(section, 'smooth');
+    });
   });
-});
+
+  let ticking = false;
+  const updateActiveFromScroll = () => {
+    ticking = false;
+    if (!items.length) return;
+
+    const threshold = getTopOffset() + 8;
+    let activeItem = items[0];
+
+    items.forEach(item => {
+      if (getHeading(item.section).getBoundingClientRect().top <= threshold) {
+        activeItem = item;
+      }
+    });
+
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+      activeItem = items[items.length - 1];
+    }
+    setActive(activeItem.link);
+  };
+
+  const requestActiveUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateActiveFromScroll);
+  };
+
+  window.addEventListener('scroll', requestActiveUpdate, { passive: true });
+  window.addEventListener('resize', requestActiveUpdate);
+  window.addEventListener('load', () => {
+    if (window.location.hash) {
+      const section = document.querySelector(window.location.hash);
+      if (section) window.setTimeout(() => scrollToSection(section, 'auto'), 0);
+    }
+    requestActiveUpdate();
+  });
+
+  requestActiveUpdate();
+})();
 </script>
 <script>
 (function () {
