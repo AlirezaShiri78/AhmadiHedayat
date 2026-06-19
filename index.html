@@ -1455,6 +1455,101 @@
     }
   }
 
+
+  /* ── V5: FULL-WIDTH MOBILE SLIDER CARDS ── */
+  @media (max-width: 768px) {
+    /* Keep the card row full-width while the navigation controls occupy their own row. */
+    #books .content-slider,
+    #workshops .content-slider {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 40px 40px minmax(0, 1fr);
+      grid-template-rows: auto 40px;
+      width: 100%;
+      max-width: 100%;
+      column-gap: 10px;
+      row-gap: 0.8rem;
+      justify-content: stretch;
+      align-items: center;
+      overflow: visible;
+    }
+
+    #books .slider-viewport,
+    #workshops .slider-viewport {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
+      padding: 0.25rem 0 0.35rem;
+    }
+
+    #booksGrid.slider-track,
+    #workshopsGrid.slider-track {
+      width: 100%;
+      max-width: 100%;
+      gap: 0.85rem !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      padding: 0.2rem 0.05rem 0.75rem !important;
+      scroll-snap-type: none !important;
+      scroll-behavior: smooth;
+      overscroll-behavior-inline: contain !important;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-x pan-y;
+    }
+
+    #booksGrid > .book-card,
+    #workshopsGrid > .workshop-card {
+      flex: 0 0 calc(100% - 0.15rem) !important;
+      width: calc(100% - 0.15rem) !important;
+      max-width: calc(100% - 0.15rem) !important;
+      min-width: calc(100% - 0.15rem) !important;
+      scroll-snap-align: none !important;
+      scroll-snap-stop: normal !important;
+    }
+
+    #books .slider-btn,
+    #workshops .slider-btn {
+      grid-row: 2;
+      position: static;
+      width: 40px;
+      height: 40px;
+      margin: 0;
+      transform: none;
+      justify-self: center;
+      align-self: center;
+    }
+    #books .slider-btn--right,
+    #workshops .slider-btn--right {
+      grid-column: 3;
+    }
+    #books .slider-btn--left,
+    #workshops .slider-btn--left {
+      grid-column: 2;
+    }
+    #books .slider-btn:hover:not(:disabled),
+    #books .slider-btn:focus-visible:not(:disabled),
+    #workshops .slider-btn:hover:not(:disabled),
+    #workshops .slider-btn:focus-visible:not(:disabled) {
+      transform: scale(1.06);
+    }
+  }
+
+  @media (max-width: 390px) {
+    #books .content-slider,
+    #workshops .content-slider {
+      grid-template-columns: minmax(0, 1fr) 38px 38px minmax(0, 1fr);
+    }
+    #booksGrid > .book-card,
+    #workshopsGrid > .workshop-card {
+      flex-basis: calc(100% - 0.1rem) !important;
+      width: calc(100% - 0.1rem) !important;
+      max-width: calc(100% - 0.1rem) !important;
+      min-width: calc(100% - 0.1rem) !important;
+    }
+  }
+
 </style>
 </head>
 <body>
