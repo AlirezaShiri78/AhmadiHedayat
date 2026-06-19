@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+
+<html dir="rtl" lang="fa">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>دکتر حمید احمدی هدایت</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet"/>
 <style>
   :root {
     --primary: #1a6fc4;
@@ -642,517 +643,733 @@
     border-radius: 8px;
     padding-inline: 8px;
   }
+
+
+  /* ── STABILITY, EMPTY MEDIA & RESPONSIVE OVERRIDES ── */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 82px;
+  }
+
+  body { overflow-x: hidden; }
+
+  section, .footer-section { scroll-margin-top: 82px; }
+
+  .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 8px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    line-height: 1.4;
+    white-space: nowrap;
+    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+  }
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    color: var(--primary);
+    background: var(--primary-light);
+    border-color: var(--border);
+    padding-inline: 8px;
+    outline: none;
+  }
+
+  #articlesGrid .a4-card { height: 100%; }
+  #articlesGrid .a4-body { padding: 1.35rem; }
+
+  .media-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 1rem;
+    color: var(--primary-mid);
+    text-align: center;
+    background:
+      linear-gradient(135deg, transparent 0 48%, color-mix(in srgb, var(--border) 30%, transparent) 48% 52%, transparent 52% 100%),
+      var(--surface-alt);
+  }
+  .media-placeholder i { font-size: 38px; opacity: 0.62; }
+  .media-placeholder span { font-size: 12px; font-weight: 500; line-height: 1.5; }
+  .avatar-fallback { line-height: 1; }
+
+  @media (max-width: 900px) {
+    nav { padding-inline: 1.5rem; }
+    .nav-links { gap: 0.8rem; }
+    .hero-inner { grid-template-columns: minmax(0, 1fr) 280px; gap: 2rem; }
+  }
+
+  @media (max-width: 768px) {
+    html { scroll-padding-top: 112px; }
+    body { font-size: 14px; }
+
+    nav {
+      height: auto;
+      min-height: 0;
+      padding: 0.55rem 1rem 0.45rem;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.75rem;
+      align-items: center;
+    }
+    .nav-logo {
+      flex: 1 1 auto;
+      min-width: 0;
+      max-width: calc(100% - 126px);
+      font-size: 13.5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .theme-select-wrap {
+      flex: 0 0 auto;
+      gap: 4px;
+    }
+    .theme-label { display: none; }
+    select#themeSelect {
+      width: 116px;
+      max-width: 34vw;
+      padding: 4px 7px;
+      font-size: 11px;
+    }
+    .nav-links {
+      order: 3;
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      gap: 0.25rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-top: 0.4rem;
+      border-top: 1px solid color-mix(in srgb, var(--border) 65%, transparent);
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-x;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links li { flex: 0 0 auto; }
+    .nav-links a {
+      min-height: 34px;
+      padding: 5px 9px;
+      font-size: 12px;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus-visible { padding-inline: 9px; }
+
+    section {
+      max-width: 100%;
+      padding: 3.25rem 1rem;
+    }
+    section + section { padding-top: 3.25rem; }
+    #books,
+    #skills {
+      padding: 3.25rem 0 !important;
+    }
+    #books > div,
+    #skills > div {
+      max-width: 100% !important;
+      padding-inline: 1rem !important;
+    }
+    .section-label { font-size: 10.5px; }
+    .section-title { font-size: 22px; }
+    .section-divider { margin-bottom: 1.5rem; }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 2.5rem 1rem 2.75rem;
+      text-align: center;
+    }
+    .hero-inner > div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 0;
+    }
+    .hero-avatar {
+      order: 1;
+      width: 106px;
+      height: 106px;
+      margin: 0 auto 1rem;
+      font-size: 32px;
+    }
+    .hero-name {
+      order: 2;
+      width: 100%;
+      max-width: 100%;
+      font-size: 26px;
+      line-height: 1.35;
+      margin-bottom: 0.45rem;
+      overflow-wrap: anywhere;
+    }
+    .hero-title {
+      order: 3;
+      width: 100%;
+      font-size: 13.5px;
+      margin-bottom: 1rem;
+    }
+    .hero-desc {
+      order: 4;
+      width: 100%;
+      max-width: none;
+      font-size: 13.5px;
+      line-height: 1.9;
+      text-align: justify;
+    }
+    .hero-stats {
+      width: 100%;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0;
+      padding: 0.85rem 0.3rem;
+      border-radius: 14px;
+    }
+    .stat-item {
+      min-width: 0;
+      padding: 0 0.3rem;
+    }
+    .stat-item + .stat-item { border-right: 1px solid var(--border); }
+    .stat-num { font-size: 20px; }
+    .stat-lbl {
+      display: block;
+      font-size: 9.5px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    #articlesGrid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    #articlesGrid .a4-body { padding: 1rem; }
+
+    #booksGrid,
+    #workshopsGrid {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.65rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.15rem 0 0.75rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-inline: contain;
+    }
+    #booksGrid > .book-card,
+    #workshopsGrid > .workshop-card {
+      flex: 0 0 calc((100vw - 3.3rem) / 3);
+      width: calc((100vw - 3.3rem) / 3);
+      min-width: 0;
+      scroll-snap-align: start;
+      border-radius: 10px;
+    }
+    .book-card:hover,
+    .workshop-card:hover { transform: none; }
+    .book-cover,
+    .workshop-img { aspect-ratio: 1 / 1.22; }
+    .media-placeholder { gap: 5px; padding: 0.4rem; }
+    .media-placeholder i { font-size: 25px; }
+    .media-placeholder span { font-size: 8.5px; line-height: 1.35; }
+
+    .book-body,
+    .workshop-body { padding: 0.55rem 0.5rem 0.65rem; }
+    .book-title,
+    .workshop-title {
+      font-size: 10.5px;
+      line-height: 1.45;
+      margin-bottom: 4px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .book-author {
+      font-size: 8.8px;
+      line-height: 1.4;
+      margin-bottom: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .book-desc,
+    .workshop-desc {
+      font-size: 8.7px;
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .book-info {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      margin-top: 6px;
+      padding-top: 5px;
+    }
+    .book-year,
+    .book-pub,
+    .workshop-meta-item { font-size: 8px; }
+    .book-pub { padding: 1px 4px; }
+    .workshop-badge {
+      font-size: 8px;
+      padding: 2px 5px;
+      margin-bottom: 5px;
+    }
+    .workshop-meta {
+      flex-direction: column;
+      gap: 3px;
+      margin-top: 6px;
+      padding-top: 5px;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .skill-card { padding: 1rem 0.65rem; }
+    .skill-icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 0.7rem;
+      font-size: 21px;
+    }
+    .skill-name { font-size: 12px; }
+    .skill-level { font-size: 10.5px; }
+
+    .timeline { padding-right: 1.25rem; }
+    .timeline::before {
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+    .tl-item {
+      margin-bottom: 1.5rem;
+      padding-right: 1.1rem;
+    }
+    .tl-dot {
+      right: -7px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .tl-card { padding: 1rem; }
+    .tl-role { font-size: 14px; }
+    .tl-org,
+    .tl-tasks li { font-size: 11.5px; }
+
+    .footer-section { padding: 3rem 1rem; }
+    .contact-links { gap: 0.6rem; }
+    .contact-btn {
+      flex: 1 1 calc(50% - 0.6rem);
+      justify-content: center;
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    nav { padding-inline: 0.75rem; }
+    .nav-logo { font-size: 12.5px; max-width: calc(100% - 110px); }
+    select#themeSelect { width: 102px; font-size: 10px; }
+    .hero-name { font-size: 23px; }
+    .hero-desc { font-size: 13px; }
+    .stat-num { font-size: 18px; }
+    .stat-lbl { font-size: 8.7px; }
+    #booksGrid > .book-card,
+    #workshopsGrid > .workshop-card {
+      flex-basis: calc((100vw - 2.8rem) / 3);
+      width: calc((100vw - 2.8rem) / 3);
+    }
+  }
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
-  <div class="theme-select-wrap">
-    <span class="theme-label">تم:</span>
-    <select id="themeSelect" onchange="applyTheme(this.value)">
-      <option value="blue">آبی کلاسیک</option>
-      <option value="navy">نیوی تیره</option>
-      <option value="teal">فیروزه‌ای</option>
-      <option value="slate">خاکستری-آبی</option>
-      <option value="emerald">سبز زمردی</option>
-      <option value="violet">بنفش</option>
-      <option value="rose">صورتی گرم</option>
-      <option value="amber">کهربایی</option>
-      <option value="charcoal">ذغالی مدرن</option>
-      <option value="midnight">نیمه‌شب</option>
-    </select>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#articles">مقالات</a></li>
-    <li><a href="#books">کتاب‌ها</a></li>
-    <li><a href="#workshops">کارگاه‌ها</a></li>
-    <li><a href="#skills">تخصص‌ها</a></li>
-    <li><a href="#timeline">سابقه</a></li>
-    <li><a href="#contact">تماس</a></li>
-  </ul>
-  <div class="nav-logo">دکتر حمید احمدی هدایت</div>
+<div class="theme-select-wrap">
+<span class="theme-label">تم:</span>
+<select id="themeSelect" onchange="applyTheme(this.value)">
+<option value="blue">آبی کلاسیک</option>
+<option value="navy">نیوی تیره</option>
+<option value="teal">فیروزه‌ای</option>
+<option value="slate">خاکستری-آبی</option>
+<option value="emerald">سبز زمردی</option>
+<option value="violet">بنفش</option>
+<option value="rose">صورتی گرم</option>
+<option value="amber">کهربایی</option>
+<option value="charcoal">ذغالی مدرن</option>
+<option value="midnight">نیمه‌شب</option>
+</select>
+</div>
+<ul class="nav-links">
+<li><a href="#articles">مقالات</a></li>
+<li><a href="#books">کتاب‌ها</a></li>
+<li><a href="#workshops">کارگاه‌ها</a></li>
+<li><a href="#skills">تخصص‌ها</a></li>
+<li><a href="#timeline">سابقه</a></li>
+<li><a href="#contact">تماس</a></li>
+</ul>
+<div class="nav-logo">دکتر حمید احمدی هدایت</div>
 </nav>
-
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-avatar">
-        <span><img src="profile.jpg"></img></span>
-      </div>
-      <div class="hero-name">دکتر حمید احمدی هدایت</div>
-      <div class="hero-title">استاد دانشگاه ، پژوهشگر ، مشاور</div>
-      <p class="hero-desc">
+<div class="hero-inner">
+<div>
+<div class="hero-avatar"><img alt="تصویر دکتر حمید احمدی هدایت" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;" src="profile.jpg"/><span class="avatar-fallback" hidden="">ح ا</span></div>
+<div class="hero-name">دکتر حمید احمدی هدایت</div>
+<div class="hero-title">استاد دانشگاه ، پژوهشگر ، مشاور</div>
+<p class="hero-desc">
         بیش از دو دهه تجربه در حوزه علوم شناختی و روان‌شناسی تربیتی. نویسنده و مترجم بیش از ۱۲ کتاب تخصصی و مقاله‌های متعدد در نشریات داخلی و بین‌المللی. علاقه‌مند به پیوند دانش آکادمیک با کاربردهای عملی در حوزه یادگیری و توسعه فردی.
       </p>
-    </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-num">۱۲+</span>
-        <span class="stat-lbl">کتاب منتشر شده</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">۸۵</span>
-        <span class="stat-lbl">مقاله علمی</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">۲۰+</span>
-        <span class="stat-lbl">سال تجربه</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">۳۰+</span>
-        <span class="stat-lbl">کارگاه برگزار شده</span>
-      </div>
-    </div>
-  </div>
 </div>
-
+<div class="hero-stats">
+<div class="stat-item">
+<span class="stat-num">۱۲+</span>
+<span class="stat-lbl">کتاب منتشر شده</span>
+</div>
+<div class="stat-item">
+<span class="stat-num">۸۵</span>
+<span class="stat-lbl">مقاله علمی</span>
+</div>
+<div class="stat-item">
+<span class="stat-num">۲۰+</span>
+<span class="stat-lbl">سال تجربه</span>
+</div>
+<div class="stat-item">
+<span class="stat-num">۳۰+</span>
+<span class="stat-lbl">کارگاه برگزار شده</span>
+</div>
+</div>
+</div>
+</div>
 <!-- ARTICLES -->
 <section id="articles">
-  <div class="section-label">پژوهش و نوشتار</div>
-  <div class="section-title">مقالات علمی</div>
-  <div class="section-divider"></div>
-  <div class="cards-grid">
+<div class="section-label">پژوهش و نوشتار</div>
+<div class="section-title">مقالات علمی</div>
+<div class="section-divider"></div>
+<div class="cards-grid" id="articlesGrid">
+<div class="a4-card">
 
-    <div class="a4-card">
-      <div class="a4-img">
-        <div class="upload-hint">
-          <i class="ti ti-file-text" aria-hidden="true"></i>
-          <span>آپلود تصویر مقاله</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-art1')">
-        </div>
-        <img id="img-art1" style="display:none">
-      </div>
-      <div class="a4-body">
-        <span class="a4-tag">روان‌شناسی تربیتی</span>
-        <div class="a4-title">نقش هوش هیجانی در فرآیند یادگیری دانش‌آموزان متوسطه</div>
-        <div class="a4-desc">بررسی رابطه میان سطح هوش هیجانی و موفقیت تحصیلی در گروه‌های مختلف سنی با استفاده از روش‌های کمی.</div>
-        <div class="a4-meta"><i class="ti ti-calendar-event" aria-hidden="true"></i> ۱۴۰۱ · نشریه علوم تربیتی</div>
-      </div>
-    </div>
+<div class="a4-body">
+<span class="a4-tag">روان‌شناسی تربیتی</span>
+<div class="a4-title">نقش هوش هیجانی در فرآیند یادگیری دانش‌آموزان متوسطه</div>
+<div class="a4-desc">بررسی رابطه میان سطح هوش هیجانی و موفقیت تحصیلی در گروه‌های مختلف سنی با استفاده از روش‌های کمی.</div>
+<div class="a4-meta"><i aria-hidden="true" class="ti ti-calendar-event"></i> ۱۴۰۱ · نشریه علوم تربیتی</div>
+</div>
+</div>
+<div class="a4-card">
 
-    <div class="a4-card">
-      <div class="a4-img">
-        <div class="upload-hint">
-          <i class="ti ti-file-text" aria-hidden="true"></i>
-          <span>آپلود تصویر مقاله</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-art2')">
-        </div>
-        <img id="img-art2" style="display:none">
-      </div>
-      <div class="a4-body">
-        <span class="a4-tag">علوم شناختی</span>
-        <div class="a4-title">مدل‌های حافظه کاری و تأثیر آن‌ها بر توانایی حل مسئله</div>
-        <div class="a4-desc">پژوهشی مقایسه‌ای میان دو مدل از حافظه کاری و بررسی کاربردهای آموزشی آن‌ها در محیط‌های مختلف.</div>
-        <div class="a4-meta"><i class="ti ti-calendar-event" aria-hidden="true"></i> ۱۴۰۲ · فصلنامه روان‌شناسی</div>
-      </div>
-    </div>
+<div class="a4-body">
+<span class="a4-tag">علوم شناختی</span>
+<div class="a4-title">مدل‌های حافظه کاری و تأثیر آن‌ها بر توانایی حل مسئله</div>
+<div class="a4-desc">پژوهشی مقایسه‌ای میان دو مدل از حافظه کاری و بررسی کاربردهای آموزشی آن‌ها در محیط‌های مختلف.</div>
+<div class="a4-meta"><i aria-hidden="true" class="ti ti-calendar-event"></i> ۱۴۰۲ · فصلنامه روان‌شناسی</div>
+</div>
+</div>
+<div class="a4-card">
 
-    <div class="a4-card">
-      <div class="a4-img">
-        <div class="upload-hint">
-          <i class="ti ti-file-text" aria-hidden="true"></i>
-          <span>آپلود تصویر مقاله</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-art3')">
-        </div>
-        <img id="img-art3" style="display:none">
-      </div>
-      <div class="a4-body">
-        <span class="a4-tag">روش‌شناسی</span>
-        <div class="a4-title">کاربرد هوش مصنوعی در ارزیابی مستمر آموزشی</div>
-        <div class="a4-desc">معرفی رویکردهای نوین ارزیابی دانش‌آموزان با تکیه بر الگوریتم‌های یادگیری ماشین و داده‌های رفتاری.</div>
-        <div class="a4-meta"><i class="ti ti-calendar-event" aria-hidden="true"></i> ۱۴۰۲ · کنفرانس بین‌المللی</div>
-      </div>
-    </div>
+<div class="a4-body">
+<span class="a4-tag">روش‌شناسی</span>
+<div class="a4-title">کاربرد هوش مصنوعی در ارزیابی مستمر آموزشی</div>
+<div class="a4-desc">معرفی رویکردهای نوین ارزیابی دانش‌آموزان با تکیه بر الگوریتم‌های یادگیری ماشین و داده‌های رفتاری.</div>
+<div class="a4-meta"><i aria-hidden="true" class="ti ti-calendar-event"></i> ۱۴۰۲ · کنفرانس بین‌المللی</div>
+</div>
+</div>
+<div class="a4-card">
 
-    <div class="a4-card">
-      <div class="a4-img">
-        <div class="upload-hint">
-          <i class="ti ti-file-text" aria-hidden="true"></i>
-          <span>آپلود تصویر مقاله</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-art4')">
-        </div>
-        <img id="img-art4" style="display:none">
-      </div>
-      <div class="a4-body">
-        <span class="a4-tag">توسعه فردی</span>
-        <div class="a4-title">خودتنظیمی یادگیری: مدل‌ها و راهبردهای عملی</div>
-        <div class="a4-desc">مروری جامع بر نظریه‌های خودتنظیمی و ارائه راهکارهای کاربردی برای معلمان و مربیان.</div>
-        <div class="a4-meta"><i class="ti ti-calendar-event" aria-hidden="true"></i> ۱۴۰۰ · مجله پژوهش</div>
-      </div>
-    </div>
-
-  </div>
+<div class="a4-body">
+<span class="a4-tag">توسعه فردی</span>
+<div class="a4-title">خودتنظیمی یادگیری: مدل‌ها و راهبردهای عملی</div>
+<div class="a4-desc">مروری جامع بر نظریه‌های خودتنظیمی و ارائه راهکارهای کاربردی برای معلمان و مربیان.</div>
+<div class="a4-meta"><i aria-hidden="true" class="ti ti-calendar-event"></i> ۱۴۰۰ · مجله پژوهش</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- BOOKS -->
 <section id="books" style="background: var(--surface-alt); margin: 0; max-width: 100%; padding: 5rem 0;">
 <div style="max-width:1100px; margin:0 auto; padding: 0 2rem;">
-  <div class="section-label">آثار مکتوب</div>
-  <div class="section-title">کتاب‌های تألیفی</div>
-  <div class="section-divider"></div>
-  <div class="cards-grid" style="grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));">
-
-    <div class="book-card">
-      <div class="book-cover">
-        <div class="upload-hint">
-          <i class="ti ti-book" aria-hidden="true"></i>
-          <span>آپلود تصویر کتاب</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-bk1')">
-        </div>
-        <img id="img-bk1" style="display:none">
-      </div>
-      <div class="book-body">
-        <div class="book-title">روان‌شناسی یادگیری نوین</div>
-        <div class="book-author">دکتر علی احمدی</div>
-        <div class="book-desc">نگاهی جامع به نظریه‌های کلاسیک و مدرن یادگیری با کاربردهای عملی در آموزش و پرورش.</div>
-        <div class="book-info">
-          <span class="book-year"><i class="ti ti-calendar" aria-hidden="true"></i> ۱۳۹۸</span>
-          <span class="book-pub">انتشارات سمت</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="book-card">
-      <div class="book-cover">
-        <div class="upload-hint">
-          <i class="ti ti-book" aria-hidden="true"></i>
-          <span>آپلود تصویر کتاب</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-bk2')">
-        </div>
-        <img id="img-bk2" style="display:none">
-      </div>
-      <div class="book-body">
-        <div class="book-title">مغز، ذهن و تعلیم</div>
-        <div class="book-author">دکتر حمید احمدی هدایت</div>
-        <div class="book-desc">ارتباط علوم اعصاب با آموزش و راهکارهای عملی برای بهینه‌سازی محیط‌های یادگیری.</div>
-        <div class="book-info">
-          <span class="book-year"><i class="ti ti-calendar" aria-hidden="true"></i> ۱۴۰۰</span>
-          <span class="book-pub">نشر آگاه</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="book-card">
-      <div class="book-cover">
-        <div class="upload-hint">
-          <i class="ti ti-book" aria-hidden="true"></i>
-          <span>آپلود تصویر کتاب</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-bk3')">
-        </div>
-        <img id="img-bk3" style="display:none">
-      </div>
-      <div class="book-body">
-        <div class="book-title">هوش هیجانی در سازمان</div>
-        <div class="book-author">دکتر حمید احمدی هدایت</div>
-        <div class="book-desc">راهنمای عملی توسعه هوش هیجانی برای مدیران و کارکنان سازمان‌های بزرگ.</div>
-        <div class="book-info">
-          <span class="book-year"><i class="ti ti-calendar" aria-hidden="true"></i> ۱۴۰۱</span>
-          <span class="book-pub">نشر دانشگاه</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="book-card">
-      <div class="book-cover">
-        <div class="upload-hint">
-          <i class="ti ti-book" aria-hidden="true"></i>
-          <span>آپلود تصویر کتاب</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-bk4')">
-        </div>
-        <img id="img-bk4" style="display:none">
-      </div>
-      <div class="book-body">
-        <div class="book-title">تفکر نقادانه و خلاقیت</div>
-        <div class="book-author">دکتر حمید احمدی هدایت</div>
-        <div class="book-desc">چارچوب‌های عملی برای پرورش مهارت‌های تفکر در دانش‌آموزان و دانشجویان.</div>
-        <div class="book-info">
-          <span class="book-year"><i class="ti ti-calendar" aria-hidden="true"></i> ۱۴۰۲</span>
-          <span class="book-pub">نشر فردا</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
+<div class="section-label">آثار مکتوب</div>
+<div class="section-title">کتاب‌های تألیفی</div>
+<div class="section-divider"></div>
+<div class="cards-grid" id="booksGrid">
+<div class="book-card">
+<div class="book-cover"><div aria-label="تصویر کتاب موجود نیست" class="media-placeholder" role="img"><i aria-hidden="true" class="ti ti-book-off"></i><span>تصویر کتاب موجود نیست</span></div></div>
+<div class="book-body">
+<div class="book-title">روان‌شناسی یادگیری نوین</div>
+<div class="book-author">دکتر علی احمدی</div>
+<div class="book-desc">نگاهی جامع به نظریه‌های کلاسیک و مدرن یادگیری با کاربردهای عملی در آموزش و پرورش.</div>
+<div class="book-info">
+<span class="book-year"><i aria-hidden="true" class="ti ti-calendar"></i> ۱۳۹۸</span>
+<span class="book-pub">انتشارات سمت</span>
+</div>
+</div>
+</div>
+<div class="book-card">
+<div class="book-cover"><div aria-label="تصویر کتاب موجود نیست" class="media-placeholder" role="img"><i aria-hidden="true" class="ti ti-book-off"></i><span>تصویر کتاب موجود نیست</span></div></div>
+<div class="book-body">
+<div class="book-title">مغز، ذهن و تعلیم</div>
+<div class="book-author">دکتر حمید احمدی هدایت</div>
+<div class="book-desc">ارتباط علوم اعصاب با آموزش و راهکارهای عملی برای بهینه‌سازی محیط‌های یادگیری.</div>
+<div class="book-info">
+<span class="book-year"><i aria-hidden="true" class="ti ti-calendar"></i> ۱۴۰۰</span>
+<span class="book-pub">نشر آگاه</span>
+</div>
+</div>
+</div>
+<div class="book-card">
+<div class="book-cover"><div aria-label="تصویر کتاب موجود نیست" class="media-placeholder" role="img"><i aria-hidden="true" class="ti ti-book-off"></i><span>تصویر کتاب موجود نیست</span></div></div>
+<div class="book-body">
+<div class="book-title">هوش هیجانی در سازمان</div>
+<div class="book-author">دکتر حمید احمدی هدایت</div>
+<div class="book-desc">راهنمای عملی توسعه هوش هیجانی برای مدیران و کارکنان سازمان‌های بزرگ.</div>
+<div class="book-info">
+<span class="book-year"><i aria-hidden="true" class="ti ti-calendar"></i> ۱۴۰۱</span>
+<span class="book-pub">نشر دانشگاه</span>
+</div>
+</div>
+</div>
+<div class="book-card">
+<div class="book-cover"><div aria-label="تصویر کتاب موجود نیست" class="media-placeholder" role="img"><i aria-hidden="true" class="ti ti-book-off"></i><span>تصویر کتاب موجود نیست</span></div></div>
+<div class="book-body">
+<div class="book-title">تفکر نقادانه و خلاقیت</div>
+<div class="book-author">دکتر حمید احمدی هدایت</div>
+<div class="book-desc">چارچوب‌های عملی برای پرورش مهارت‌های تفکر در دانش‌آموزان و دانشجویان.</div>
+<div class="book-info">
+<span class="book-year"><i aria-hidden="true" class="ti ti-calendar"></i> ۱۴۰۲</span>
+<span class="book-pub">نشر فردا</span>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
-
 <!-- WORKSHOPS -->
 <section id="workshops">
-  <div class="section-label">آموزش و تربیت</div>
-  <div class="section-title">کارگاه‌های تخصصی</div>
-  <div class="section-divider"></div>
-  <div class="cards-grid">
-
-    <div class="workshop-card">
-      <div class="workshop-img">
-        <div class="upload-hint">
-          <i class="ti ti-presentation" aria-hidden="true"></i>
-          <span>آپلود تصویر کارگاه</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-ws1')">
-        </div>
-        <img id="img-ws1" style="display:none">
-      </div>
-      <div class="workshop-body">
-        <span class="workshop-badge"><i class="ti ti-users" aria-hidden="true"></i> ۴۵ نفر</span>
-        <div class="workshop-title">کارگاه یادگیری مبتنی بر پروژه</div>
-        <div class="workshop-desc">آموزش روش‌های یادگیری پروژه‌محور برای معلمان دوره ابتدایی و متوسطه.</div>
-        <div class="workshop-meta">
-          <span class="workshop-meta-item"><i class="ti ti-calendar" aria-hidden="true"></i> بهمن ۱۴۰۲</span>
-          <span class="workshop-meta-item"><i class="ti ti-map-pin" aria-hidden="true"></i> تهران</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="workshop-card">
-      <div class="workshop-img">
-        <div class="upload-hint">
-          <i class="ti ti-presentation" aria-hidden="true"></i>
-          <span>آپلود تصویر کارگاه</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-ws2')">
-        </div>
-        <img id="img-ws2" style="display:none">
-      </div>
-      <div class="workshop-body">
-        <span class="workshop-badge"><i class="ti ti-users" aria-hidden="true"></i> ۶۰ نفر</span>
-        <div class="workshop-title">مدیریت استرس و فرسودگی شغلی</div>
-        <div class="workshop-desc">راهکارهای مبتنی بر شواهد برای مقابله با استرس شغلی ویژه مدیران و مشاوران.</div>
-        <div class="workshop-meta">
-          <span class="workshop-meta-item"><i class="ti ti-calendar" aria-hidden="true"></i> مرداد ۱۴۰۲</span>
-          <span class="workshop-meta-item"><i class="ti ti-map-pin" aria-hidden="true"></i> اصفهان</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="workshop-card">
-      <div class="workshop-img">
-        <div class="upload-hint">
-          <i class="ti ti-presentation" aria-hidden="true"></i>
-          <span>آپلود تصویر کارگاه</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-ws3')">
-        </div>
-        <img id="img-ws3" style="display:none">
-      </div>
-      <div class="workshop-body">
-        <span class="workshop-badge"><i class="ti ti-users" aria-hidden="true"></i> ۳۵ نفر</span>
-        <div class="workshop-title">پژوهش کیفی در علوم اجتماعی</div>
-        <div class="workshop-desc">آموزش روش‌های تحقیق کیفی، مصاحبه عمیق و تحلیل محتوا برای پژوهشگران.</div>
-        <div class="workshop-meta">
-          <span class="workshop-meta-item"><i class="ti ti-calendar" aria-hidden="true"></i> دی ۱۴۰۱</span>
-          <span class="workshop-meta-item"><i class="ti ti-map-pin" aria-hidden="true"></i> آنلاین</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="workshop-card">
-      <div class="workshop-img">
-        <div class="upload-hint">
-          <i class="ti ti-presentation" aria-hidden="true"></i>
-          <span>آپلود تصویر کارگاه</span>
-          <input type="file" accept="image/*" onchange="loadImage(this, 'img-ws4')">
-        </div>
-        <img id="img-ws4" style="display:none">
-      </div>
-      <div class="workshop-body">
-        <span class="workshop-badge"><i class="ti ti-users" aria-hidden="true"></i> ۸۰ نفر</span>
-        <div class="workshop-title">کوچینگ تحصیلی و حرفه‌ای</div>
-        <div class="workshop-desc">اصول و مهارت‌های کوچینگ برای راهنمایی دانش‌آموزان در مسیر تحصیلی و شغلی.</div>
-        <div class="workshop-meta">
-          <span class="workshop-meta-item"><i class="ti ti-calendar" aria-hidden="true"></i> خرداد ۱۴۰۲</span>
-          <span class="workshop-meta-item"><i class="ti ti-map-pin" aria-hidden="true"></i> مشهد</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
+<div class="section-label">آموزش و تربیت</div>
+<div class="section-title">کارگاه‌های تخصصی</div>
+<div class="section-divider"></div>
+<div class="cards-grid" id="workshopsGrid">
+<div class="workshop-card">
+<div class="workshop-img"><div aria-label="تصویر کارگاه موجود نیست" class="media-placeholder" role="img"><i aria-hidden="true" class="ti ti-photo-off"></i><span>تصویر کارگاه موجود نیست</span></div></div>
+<div class="workshop-body">
+<span class="workshop-badge"><i aria-hidden="true" class="ti ti-users"></i> ۴۵ نفر</span>
+<div class="workshop-title">کارگاه یادگیری مبتنی بر پروژه</div>
+<div class="workshop-desc">آموزش روش‌های یادگیری پروژه‌محور برای معلمان دوره ابتدایی و متوسطه.</div>
+<div class="workshop-meta">
+<span class="workshop-meta-item"><i aria-hidden="true" class="ti ti-calendar"></i> بهمن ۱۴۰۲</span>
+<span class="workshop-meta-item"><i aria-hidden="true" class="ti ti-map-pin"></i> تهران</span>
+</div>
+</div>
+</div>
+<div class="workshop-card">
+<div class="workshop-img"><div aria-label="تصویر کارگاه موجود نیست" class="media-placeholder" role="img"><i aria-hidden="true" class="ti ti-photo-off"></i><span>تصویر کارگاه موجود نیست</span></div></div>
+<div class="workshop-body">
+<span class="workshop-badge"><i aria-hidden="true" class="ti ti-users"></i> ۶۰ نفر</span>
+<div class="workshop-title">مدیریت استرس و فرسودگی شغلی</div>
+<div class="workshop-desc">راهکارهای مبتنی بر شواهد برای مقابله با استرس شغلی ویژه مدیران و مشاوران.</div>
+<div class="workshop-meta">
+<span class="workshop-meta-item"><i aria-hidden="true" class="ti ti-calendar"></i> مرداد ۱۴۰۲</span>
+<span class="workshop-meta-item"><i aria-hidden="true" class="ti ti-map-pin"></i> اصفهان</span>
+</div>
+</div>
+</div>
+<div class="workshop-card">
+<div class="workshop-img"><div aria-label="تصویر کارگاه موجود نیست" class="media-placeholder" role="img"><i aria-hidden="true" class="ti ti-photo-off"></i><span>تصویر کارگاه موجود نیست</span></div></div>
+<div class="workshop-body">
+<span class="workshop-badge"><i aria-hidden="true" class="ti ti-users"></i> ۳۵ نفر</span>
+<div class="workshop-title">پژوهش کیفی در علوم اجتماعی</div>
+<div class="workshop-desc">آموزش روش‌های تحقیق کیفی، مصاحبه عمیق و تحلیل محتوا برای پژوهشگران.</div>
+<div class="workshop-meta">
+<span class="workshop-meta-item"><i aria-hidden="true" class="ti ti-calendar"></i> دی ۱۴۰۱</span>
+<span class="workshop-meta-item"><i aria-hidden="true" class="ti ti-map-pin"></i> آنلاین</span>
+</div>
+</div>
+</div>
+<div class="workshop-card">
+<div class="workshop-img"><div aria-label="تصویر کارگاه موجود نیست" class="media-placeholder" role="img"><i aria-hidden="true" class="ti ti-photo-off"></i><span>تصویر کارگاه موجود نیست</span></div></div>
+<div class="workshop-body">
+<span class="workshop-badge"><i aria-hidden="true" class="ti ti-users"></i> ۸۰ نفر</span>
+<div class="workshop-title">کوچینگ تحصیلی و حرفه‌ای</div>
+<div class="workshop-desc">اصول و مهارت‌های کوچینگ برای راهنمایی دانش‌آموزان در مسیر تحصیلی و شغلی.</div>
+<div class="workshop-meta">
+<span class="workshop-meta-item"><i aria-hidden="true" class="ti ti-calendar"></i> خرداد ۱۴۰۲</span>
+<span class="workshop-meta-item"><i aria-hidden="true" class="ti ti-map-pin"></i> مشهد</span>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- SKILLS -->
 <section id="skills" style="background: var(--surface-alt); margin: 0; max-width: 100%; padding: 5rem 0;">
 <div style="max-width:1100px; margin:0 auto; padding: 0 2rem;">
-  <div class="section-label">حوزه‌های تخصصی</div>
-  <div class="section-title">تخصص‌ها و مهارت‌ها</div>
-  <div class="section-divider"></div>
-  <div class="skills-grid">
-
-    <div class="skill-card">
-      <div class="skill-icon"><i class="ti ti-brain" aria-hidden="true"></i></div>
-      <div class="skill-name">علوم شناختی</div>
-      <div class="skill-level">تخصصی</div>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
-      <div class="skill-name">روان‌شناسی تربیتی</div>
-      <div class="skill-level">تخصصی</div>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width:92%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon"><i class="ti ti-chart-line" aria-hidden="true"></i></div>
-      <div class="skill-name">تحقیق و پژوهش</div>
-      <div class="skill-level">پیشرفته</div>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
-      <div class="skill-name">مشاوره فردی</div>
-      <div class="skill-level">پیشرفته</div>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon"><i class="ti ti-writing" aria-hidden="true"></i></div>
-      <div class="skill-name">نویسندگی علمی</div>
-      <div class="skill-level">پیشرفته</div>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon"><i class="ti ti-microphone" aria-hidden="true"></i></div>
-      <div class="skill-name">سخنرانی عمومی</div>
-      <div class="skill-level">پیشرفته</div>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon"><i class="ti ti-device-laptop" aria-hidden="true"></i></div>
-      <div class="skill-name">آموزش آنلاین</div>
-      <div class="skill-level">متوسط-پیشرفته</div>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon"><i class="ti ti-language" aria-hidden="true"></i></div>
-      <div class="skill-name">زبان انگلیسی</div>
-      <div class="skill-level">پیشرفته</div>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon"><i class="ti ti-target" aria-hidden="true"></i></div>
-      <div class="skill-name">کوچینگ</div>
-      <div class="skill-level">پیشرفته</div>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width:78%"></div></div>
-    </div>
-
-    <div class="skill-card">
-      <div class="skill-icon"><i class="ti ti-flask" aria-hidden="true"></i></div>
-      <div class="skill-name">روش‌های آماری</div>
-      <div class="skill-level">متوسط-پیشرفته</div>
-      <div class="skill-bar"><div class="skill-bar-fill" style="width:73%"></div></div>
-    </div>
-
-  </div>
+<div class="section-label">حوزه‌های تخصصی</div>
+<div class="section-title">تخصص‌ها و مهارت‌ها</div>
+<div class="section-divider"></div>
+<div class="skills-grid" id="skillsGrid">
+<div class="skill-card">
+<div class="skill-icon"><i aria-hidden="true" class="ti ti-brain"></i></div>
+<div class="skill-name">علوم شناختی</div>
+<div class="skill-level">تخصصی</div>
+<div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><i aria-hidden="true" class="ti ti-school"></i></div>
+<div class="skill-name">روان‌شناسی تربیتی</div>
+<div class="skill-level">تخصصی</div>
+<div class="skill-bar"><div class="skill-bar-fill" style="width:92%"></div></div>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><i aria-hidden="true" class="ti ti-chart-line"></i></div>
+<div class="skill-name">تحقیق و پژوهش</div>
+<div class="skill-level">پیشرفته</div>
+<div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><i aria-hidden="true" class="ti ti-users"></i></div>
+<div class="skill-name">مشاوره فردی</div>
+<div class="skill-level">پیشرفته</div>
+<div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><i aria-hidden="true" class="ti ti-writing"></i></div>
+<div class="skill-name">نویسندگی علمی</div>
+<div class="skill-level">پیشرفته</div>
+<div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><i aria-hidden="true" class="ti ti-microphone"></i></div>
+<div class="skill-name">سخنرانی عمومی</div>
+<div class="skill-level">پیشرفته</div>
+<div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><i aria-hidden="true" class="ti ti-device-laptop"></i></div>
+<div class="skill-name">آموزش آنلاین</div>
+<div class="skill-level">متوسط-پیشرفته</div>
+<div class="skill-bar"><div class="skill-bar-fill" style="width:75%"></div></div>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><i aria-hidden="true" class="ti ti-language"></i></div>
+<div class="skill-name">زبان انگلیسی</div>
+<div class="skill-level">پیشرفته</div>
+<div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><i aria-hidden="true" class="ti ti-target"></i></div>
+<div class="skill-name">کوچینگ</div>
+<div class="skill-level">پیشرفته</div>
+<div class="skill-bar"><div class="skill-bar-fill" style="width:78%"></div></div>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><i aria-hidden="true" class="ti ti-flask"></i></div>
+<div class="skill-name">روش‌های آماری</div>
+<div class="skill-level">متوسط-پیشرفته</div>
+<div class="skill-bar"><div class="skill-bar-fill" style="width:73%"></div></div>
+</div>
+</div>
 </div>
 </section>
-
 <!-- TIMELINE -->
 <section id="timeline">
-  <div class="section-label">مسیر حرفه‌ای</div>
-  <div class="section-title">سابقه کاری و تحصیلی</div>
-  <div class="section-divider"></div>
-  <div class="timeline">
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-period">۱۴۰۰ — اکنون</div>
-        <div class="tl-role">استاد تمام و رئیس گروه</div>
-        <div class="tl-org"><i class="ti ti-building-community" aria-hidden="true"></i> دانشگاه تهران — دانشکده روان‌شناسی</div>
-        <ul class="tl-tasks">
-          <li>تدریس دروس علوم شناختی و روان‌شناسی تربیتی در مقطع دکترا</li>
-          <li>راهنمایی رساله بیش از ۱۵ دانشجوی دکترا</li>
-          <li>سردبیری فصلنامه روان‌شناسی کاربردی</li>
-          <li>مدیریت ۳ پروژه پژوهشی ملی</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-period">۱۳۹۵ — ۱۴۰۰</div>
-        <div class="tl-role">دانشیار و مشاور ارشد</div>
-        <div class="tl-org"><i class="ti ti-building" aria-hidden="true"></i> دانشگاه شهید بهشتی</div>
-        <ul class="tl-tasks">
-          <li>تدریس دروس تخصصی در مقاطع کارشناسی ارشد و دکترا</li>
-          <li>مشاوره به وزارت آموزش و پرورش در حوزه اصلاح برنامه درسی</li>
-          <li>تألیف ۴ کتاب دانشگاهی</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-period">۱۳۹۰ — ۱۳۹۵</div>
-        <div class="tl-role">پژوهشگر و مدرس مدعو</div>
-        <div class="tl-org"><i class="ti ti-school" aria-hidden="true"></i> دانشگاه‌های مختلف · فریلنسر</div>
-        <ul class="tl-tasks">
-          <li>تدریس مدعو در دانشگاه‌های اصفهان، شیراز و مشهد</li>
-          <li>انجام پروژه‌های پژوهشی مستقل با حمایت بنیاد ملی علم</li>
-          <li>برگزاری کارگاه‌های تخصصی برای سازمان‌های دولتی</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-period">۱۳۸۵ — ۱۳۹۰</div>
-        <div class="tl-role">دوره دکترا · پژوهشگر</div>
-        <div class="tl-org"><i class="ti ti-building-arch" aria-hidden="true"></i> دانشگاه ادینبورگ، اسکاتلند</div>
-        <ul class="tl-tasks">
-          <li>دفاع از رساله دکترا با موضوع حافظه کاری و یادگیری زبان دوم</li>
-          <li>انجام پژوهش تجربی با بیش از ۳۰۰ شرکت‌کننده</li>
-          <li>دریافت جایزه بهترین پایان‌نامه دانشکده</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-card">
-        <div class="tl-period">۱۳۸۰ — ۱۳۸۵</div>
-        <div class="tl-role">کارشناسی ارشد · تدریس</div>
-        <div class="tl-org"><i class="ti ti-school" aria-hidden="true"></i> دانشگاه تهران</div>
-        <ul class="tl-tasks">
-          <li>فارغ‌التحصیلی با رتبه اول در رشته روان‌شناسی تربیتی</li>
-          <li>تدریس در دبیرستان‌های تهران</li>
-          <li>شروع نوشتن اولین کتاب</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
+<div class="section-label">مسیر حرفه‌ای</div>
+<div class="section-title">سابقه کاری و تحصیلی</div>
+<div class="section-divider"></div>
+<div class="timeline">
+<div class="tl-item">
+<div class="tl-dot"></div>
+<div class="tl-card">
+<div class="tl-period">۱۴۰۰ — اکنون</div>
+<div class="tl-role">استاد تمام و رئیس گروه</div>
+<div class="tl-org"><i aria-hidden="true" class="ti ti-building-community"></i> دانشگاه تهران — دانشکده روان‌شناسی</div>
+<ul class="tl-tasks">
+<li>تدریس دروس علوم شناختی و روان‌شناسی تربیتی در مقطع دکترا</li>
+<li>راهنمایی رساله بیش از ۱۵ دانشجوی دکترا</li>
+<li>سردبیری فصلنامه روان‌شناسی کاربردی</li>
+<li>مدیریت ۳ پروژه پژوهشی ملی</li>
+</ul>
+</div>
+</div>
+<div class="tl-item">
+<div class="tl-dot"></div>
+<div class="tl-card">
+<div class="tl-period">۱۳۹۵ — ۱۴۰۰</div>
+<div class="tl-role">دانشیار و مشاور ارشد</div>
+<div class="tl-org"><i aria-hidden="true" class="ti ti-building"></i> دانشگاه شهید بهشتی</div>
+<ul class="tl-tasks">
+<li>تدریس دروس تخصصی در مقاطع کارشناسی ارشد و دکترا</li>
+<li>مشاوره به وزارت آموزش و پرورش در حوزه اصلاح برنامه درسی</li>
+<li>تألیف ۴ کتاب دانشگاهی</li>
+</ul>
+</div>
+</div>
+<div class="tl-item">
+<div class="tl-dot"></div>
+<div class="tl-card">
+<div class="tl-period">۱۳۹۰ — ۱۳۹۵</div>
+<div class="tl-role">پژوهشگر و مدرس مدعو</div>
+<div class="tl-org"><i aria-hidden="true" class="ti ti-school"></i> دانشگاه‌های مختلف · فریلنسر</div>
+<ul class="tl-tasks">
+<li>تدریس مدعو در دانشگاه‌های اصفهان، شیراز و مشهد</li>
+<li>انجام پروژه‌های پژوهشی مستقل با حمایت بنیاد ملی علم</li>
+<li>برگزاری کارگاه‌های تخصصی برای سازمان‌های دولتی</li>
+</ul>
+</div>
+</div>
+<div class="tl-item">
+<div class="tl-dot"></div>
+<div class="tl-card">
+<div class="tl-period">۱۳۸۵ — ۱۳۹۰</div>
+<div class="tl-role">دوره دکترا · پژوهشگر</div>
+<div class="tl-org"><i aria-hidden="true" class="ti ti-building-arch"></i> دانشگاه ادینبورگ، اسکاتلند</div>
+<ul class="tl-tasks">
+<li>دفاع از رساله دکترا با موضوع حافظه کاری و یادگیری زبان دوم</li>
+<li>انجام پژوهش تجربی با بیش از ۳۰۰ شرکت‌کننده</li>
+<li>دریافت جایزه بهترین پایان‌نامه دانشکده</li>
+</ul>
+</div>
+</div>
+<div class="tl-item">
+<div class="tl-dot"></div>
+<div class="tl-card">
+<div class="tl-period">۱۳۸۰ — ۱۳۸۵</div>
+<div class="tl-role">کارشناسی ارشد · تدریس</div>
+<div class="tl-org"><i aria-hidden="true" class="ti ti-school"></i> دانشگاه تهران</div>
+<ul class="tl-tasks">
+<li>فارغ‌التحصیلی با رتبه اول در رشته روان‌شناسی تربیتی</li>
+<li>تدریس در دبیرستان‌های تهران</li>
+<li>شروع نوشتن اولین کتاب</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
-
 <!-- CONTACT -->
 <div class="footer-section" id="contact">
-  <div class="footer-inner">
-    <div class="footer-title">در تماس باشیم</div>
-    <div class="footer-sub">برای همکاری، مشاوره یا دعوت به سخنرانی در دسترس هستم</div>
-    <div class="contact-links">
-      <a class="contact-btn" href="mailto:info@example.com">
-        <i class="ti ti-mail" aria-hidden="true"></i> ایمیل
+<div class="footer-inner">
+<div class="footer-title">در تماس باشیم</div>
+<div class="footer-sub">برای همکاری، مشاوره یا دعوت به سخنرانی در دسترس هستم</div>
+<div class="contact-links">
+<a class="contact-btn" href="mailto:info@example.com">
+<i aria-hidden="true" class="ti ti-mail"></i> ایمیل
       </a>
-      <a class="contact-btn" href="#">
-        <i class="ti ti-brand-linkedin" aria-hidden="true"></i> لینکدین
+<a class="contact-btn" href="#">
+<i aria-hidden="true" class="ti ti-brand-linkedin"></i> لینکدین
       </a>
-      <a class="contact-btn" href="#">
-        <i class="ti ti-brand-instagram" aria-hidden="true"></i> اینستاگرام
+<a class="contact-btn" href="#">
+<i aria-hidden="true" class="ti ti-brand-instagram"></i> اینستاگرام
       </a>
-      <a class="contact-btn" href="tel:+98">
-        <i class="ti ti-phone" aria-hidden="true"></i> تماس مستقیم
+<a class="contact-btn" href="tel:+98">
+<i aria-hidden="true" class="ti ti-phone"></i> تماس مستقیم
       </a>
-    </div>
-  </div>
 </div>
-
+</div>
+</div>
 <script>
 const themes = {
   blue: {
@@ -1247,19 +1464,6 @@ function applyTheme(t) {
   r.setProperty('--card-shadow', t === 'midnight' ? `0 8px 28px ${th.primary}26` : `0 8px 26px ${th.primary}24`);
 }
 
-function loadImage(input, imgId) {
-  const file = input.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = e => {
-    const img = document.getElementById(imgId);
-    img.src = e.target.result;
-    img.style.display = 'block';
-    const hint = input.closest('.upload-hint');
-    if (hint) hint.style.display = 'none';
-  };
-  reader.readAsDataURL(file);
-}
 
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
