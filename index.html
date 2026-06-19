@@ -1241,6 +1241,124 @@
     .book-desc,
     .workshop-desc { font-size: 9.8px; }
   }
+
+
+  /* ── FINAL SECTION, SCROLL AND SLIDER FIXES ── */
+  section + section {
+    padding-top: 5rem;
+  }
+
+  /* Keep every section's content fully inside its own background band. */
+  #articles,
+  #workshops,
+  #timeline {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 5rem max(2rem, calc((100% - 1100px) / 2));
+    background: var(--surface);
+  }
+  #books,
+  #skills {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    background: var(--surface-alt) !important;
+  }
+  .section-label,
+  .section-title {
+    margin-top: 0;
+  }
+
+  /* Reserve real side gutters for navigation buttons instead of overlaying cards. */
+  .content-slider {
+    direction: ltr;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) 48px;
+    align-items: center;
+    column-gap: 12px;
+    width: 100%;
+    position: relative;
+  }
+  .slider-viewport {
+    direction: rtl;
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
+    padding: 0.25rem 0 1rem;
+  }
+  .slider-btn {
+    position: static;
+    top: auto;
+    right: auto;
+    left: auto;
+    transform: none;
+    margin: 0;
+  }
+  .slider-btn--right {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: center;
+  }
+  .slider-btn--left {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+  }
+  .slider-btn:hover:not(:disabled),
+  .slider-btn:focus-visible:not(:disabled) {
+    transform: scale(1.06);
+  }
+
+  /* Horizontal cards remain swipeable, without magnetic snapping or vertical page jumps. */
+  .slider-track,
+  #booksGrid.slider-track,
+  #workshopsGrid.slider-track {
+    direction: rtl;
+    scroll-snap-type: none !important;
+    overscroll-behavior: auto !important;
+    touch-action: auto;
+  }
+  #booksGrid > .book-card,
+  #workshopsGrid > .workshop-card {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+  }
+
+  @media (max-width: 1180px) {
+    .slider-btn--right,
+    .slider-btn--left {
+      right: auto;
+      left: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #articles,
+    #workshops,
+    #timeline {
+      padding: 3.25rem 1rem;
+    }
+    section + section {
+      padding-top: 3.25rem;
+    }
+    .content-slider {
+      grid-template-columns: 38px minmax(0, 1fr) 38px;
+      column-gap: 6px;
+    }
+    .slider-btn {
+      width: 36px;
+      height: 36px;
+    }
+    .slider-btn--right,
+    .slider-btn--left {
+      right: auto;
+      left: auto;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -1746,11 +1864,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       nextButton.setAttribute('aria-disabled', String(nextButton.disabled));
     };
 
-    const goTo = index => {
+    const goTo = (index, behavior = 'smooth') => {
       currentIndex = Math.min(Math.max(index, 0), maxIndex());
       const target = cards[currentIndex];
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        const trackRect = track.getBoundingClientRect();
+        const targetRect = target.getBoundingClientRect();
+        const horizontalDelta = targetRect.right - trackRect.right;
+        track.scrollBy({ left: horizontalDelta, top: 0, behavior });
       }
       updateButtons();
     };
@@ -1779,7 +1900,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
     window.addEventListener('resize', () => {
       currentIndex = Math.min(currentIndex, maxIndex());
-      goTo(currentIndex);
+      goTo(currentIndex, 'auto');
     });
 
     updateButtons();
